@@ -1,0 +1,67 @@
+Section 1 : 
+    [x] Introduction
+Section 2 : 
+    Paginations, pre-fetching, and mutations :
+        Install dependencies :
+            [x] npm install @tanstack/react-query
+            [x] npm install @tanstack/react-query-devtools
+        Create query client : 
+            [] Client that manages queries and cache
+        Apply query provider to the app :
+            [] Provides cache and client config to children
+            [] Takes query client as values
+        Call useQuery hook :
+            [] Hook that queries the server
+
+
+        React Query Dev Tools :
+            - Shows queries (by key)
+                - status of queries
+                - last updated timestamp
+            - Data explorer
+            - Query explorer
+            - https://tanstack.com/query/latest/docs/react/devtools
+
+        Recaps : 
+            - Install packages, create query client, apply provider
+            - useQuery for data
+                - return obj includes data, isLoading, isError and error
+            - staleTime for whether or non to refetch (on trigger)
+            - query keys as dependencies arrays
+            - pagination and pre-fetching
+            - useMutations for server side-effect   
+Section 3 : 
+    Infinite queries for loading data "Just in Time" :
+        [x] introduction to infinite scroll :
+            + 2nd project :
+                - Infinite Scroll
+                    - fetch new data "just in time" as user scrolls
+                    - more efficient than fetching all data at once
+                - Fetch new data when...
+                    - user clicks a button
+                    - user scrolls to certain point on the page
+            + useInfiniteQuery
+                - Requires different API format than pagination
+                - Hence new projects
+                - Pagination
+                    - track current page in component state
+                    - new query updates page number
+                - useInfiniteQuery tracks next query
+                    - next query is returned as part of the data
+                        {
+                            "count" : 37,
+                            "next" : "https://swapi.dev/api/people/?page=2",
+                            "previous" : null,
+                            "results" : [ ... ]
+                        }
+                        
+        [x] Troubleshooting : Alternative to SWAPI
+        [x] Code quiz setup infinite SWAPI for React Query
+        [] Intro to useInfiniteQuery
+        [] useInfiniteQuery Diagram
+        [] Write useInfiniteQuery Call
+        [] InfiniteScroll Component
+        [] Troubleshooting : page 2 loads twice on initial load!
+        [] useInfiniteQuery fetching and error states
+        [] Code quiz! Infinite Species
+        [] Summary : Infinite Scroll
